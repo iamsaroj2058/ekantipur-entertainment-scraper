@@ -1,0 +1,9 @@
+1. Generate a Playwright Python project skeleton for scraping ekantipur.com, including browser launch and page navigation.
+2. Write code to navigate from the homepage to the मनोरञ्जन (Entertainment) section using a click and wait approach.
+3. Extract the top 5 news articles, including title, image URL, category, and author safely, using query_selector and handling missing elements.
+4. Implement error handling for articles that do not have an author or image.
+5. Save the scraped data as JSON in a file named output.json, ensuring UTF-8 encoding for Nepali text.
+6. Add meaningful comments throughout the code explaining each step, including navigation, element selection, and data extraction.
+7. Explain the difference between using page.query_selector / query_selector_all and page.locator, and apply the recommended method.
+8. Ensure the scraper waits for dynamic content to load before extracting articles.
+9. Refactor the scraper.py to follow Audio Bee’s style: safe extraction loops, proper waits, structured JSON output, and no hardcoded data.
