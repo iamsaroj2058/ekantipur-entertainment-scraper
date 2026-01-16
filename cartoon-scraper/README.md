@@ -2,8 +2,10 @@
 
 # Task 2: Ekantipur Cartoon of the Day Scraper
 
-# Extracts cartoon title, image URL, and cartoonist's name
+# Extracts cartoon title, image URL, and author
 
-# Author: Your Name
+# title
 
-# Date: YYYY-MM-DD
+# image_url
+
+# author
