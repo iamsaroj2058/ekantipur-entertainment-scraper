@@ -1,0 +1,17 @@
+Create ONLY a runnable scraper.py file using Playwright to scrape cartoons from ekantipur.com/cartoon.
+
+1. Launch Chromium browser (headless=False)
+2. Navigate to "https://ekantipur.com/cartoon" with 60s timeout, handle timeout gracefully
+3. Wait for ".catroon-wrap" selector (10s timeout), continue if not found, then sleep 5 seconds
+4. Find all ".catroon-wrap" elements, if none try: ".cartoon-item", "article", ".item", ".card"
+5. For each cartoon: extract title/author from ".cartoon-author p span" or ".cartoon-author span" or "figcaption"
+6. If text contains " - ", split (first=title, second=author), else entire text is title
+7. If title not found, try h2, h3, .title, .headline elements
+8. Extract image from img "src", if missing try "srcset" (first URL: split by comma then space)
+9. Only add cartoon if title OR image_url exists
+10. Save to "output.json": {"cartoons": [{"title": str|null, "image_url": str|null, "author": str|null}]}
+11. Use UTF-8 encoding, ensure_ascii=False, indent=2
+12. Create main() function, use if __name__ == '__main__': main()
+13. Imports: sync_playwright, json, time
+14. Use query_selector/query_selector_all, close browser after completion
+15. Add comments for navigation, extraction, and output steps

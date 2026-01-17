@@ -1,9 +1,17 @@
-1. Generate a Playwright Python project skeleton for scraping ekantipur.com, including browser launch and page navigation.
-2. Write code to navigate from the homepage to the मनोरञ्जन (Entertainment) section using a click and wait approach.
-3. Extract the top 5 news articles, including title, image URL, category, and author safely, using query_selector and handling missing elements.
-4. Implement error handling for articles that do not have an author or image.
-5. Save the scraped data as JSON in a file named output.json, ensuring UTF-8 encoding for Nepali text.
-6. Add meaningful comments throughout the code explaining each step, including navigation, element selection, and data extraction.
-7. Explain the difference between using page.query_selector / query_selector_all and page.locator, and apply the recommended method.
-8. Ensure the scraper waits for dynamic content to load before extracting articles.
-9. Refactor the scraper.py to follow Audio Bee’s style: safe extraction loops, proper waits, structured JSON output, and no hardcoded data.
+Create ONLY a runnable scraper.py file using Playwright to scrape top 5 entertainment articles from ekantipur.com.
+
+1. Launch Chromium browser (headless=False)
+2. Navigate to "https://ekantipur.com"
+3. Click Entertainment link: a:has-text('मनोरञ्जन')
+4. Wait for "article" selector, then wait_for_load_state("networkidle")
+5. Select top 5 articles: query_selector_all("article")[:5]
+6. For each article: extract title from h2 (strip text), image from img "src", author from ".author" (strip text)
+7. Set category as "मनोरञ्जन" for all articles
+8. Handle missing elements (set to None if not found)
+9. Save to "output.json": {"entertainment_news": [{"title": str|null, "image_url": str|null, "category": "मनोरञ्जन", "author": str|null}]}
+10. Use UTF-8 encoding, ensure_ascii=False, indent=2
+11. Print "Scraping complete! Check output.json"
+12. Create main() function, use if __name__ == '__main__': main()
+13. Imports: sync_playwright, json
+14. Use query_selector/query_selector_all, close browser after completion
+15. Add comments for navigation, extraction, and output steps
